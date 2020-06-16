@@ -8,31 +8,18 @@ import {
     Redirect
 } from "react-router-dom";
 import styled from "styled-components";
+import Nav from "./components/Nav";
 
 const Wrapper = styled.div`
-    border:1px solid red;
     display: flex;
     flex-direction: column;
     height: 100vh;
 `;
 
 const Content = styled.div`
-border: 1px solid green;
-flex-grow: 1;
+    flex-grow: 1;
 `;
-const Nav = styled.div`
-      &>ul{
-         display: flex;   
-         justify-content: center;   
-         align-items: center;
-         text-align: center;
-         >li{
-         padding: 1em;
-            width: 33.3333%;
-         }
-      }
-border: 1px solid yellow;
-`;
+
 
 function App() {
     return (
@@ -55,19 +42,9 @@ function App() {
                         </Route>
                     </Switch>
                 </Content>
-                <Nav>
-                    <ul>
-                        <li>
-                            <Link to="/tags">tags</Link>
-                        </li>
-                        <li>
-                            <Link to="/money">money</Link>
-                        </li>
-                        <li>
-                            <Link to="/statistics">statistics</Link>
-                        </li>
-                    </ul>
-                </Nav>
+
+                <Nav/>
+
             </Wrapper>
         </Router>
     );
