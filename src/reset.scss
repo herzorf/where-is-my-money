@@ -7,3 +7,14 @@ ul,ol{list-style: none}
 a{text-decoration: none;color: inherit;}
 body{font-family: $font-hei;line-height: 1.2;
   font-size: 16px;}
+.icon{
+  height: 1.5em;
+  width: 1.5em;
+}
+@media (min-width:700px) {
+  html{
+    width: 700px;
+    margin: -1px auto;
+    border: 1px solid #1296db;
+  }
+}

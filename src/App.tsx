@@ -42,9 +42,7 @@ function App() {
                         </Route>
                     </Switch>
                 </Content>
-
                 <Nav/>
-
             </Wrapper>
         </Router>
     );

@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import React from "react";
-import x from "icons/tag.svg"
-
+import Icon from "./Icon";
 const NavWrapper = styled.div`
       &>ul{
          display: flex;   
@@ -10,9 +9,13 @@ const NavWrapper = styled.div`
          align-items: center;
          text-align: center;
           >li{
-            padding: 1em;
+            padding: 0.4em;
             width: 33.3333%;
             color:#1296db;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
          }
       }
       box-shadow: 0 0 3px rgb(0,0,0,0.25);
@@ -22,13 +25,15 @@ function Nav(){
         <NavWrapper>
             <ul>
                 <li>
-                    <img src={x} alt=""/>
+                    <Icon name="tag"/>
                     <Link to="/tags">标签</Link>
                 </li>
                 <li>
+                    <Icon name="add"/>
                     <Link to="/money">记账</Link>
                 </li>
                 <li>
+                    <Icon name="statistics"/>
                     <Link to="/statistics">统计</Link>
                 </li>
             </ul>
