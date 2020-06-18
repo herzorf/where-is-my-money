@@ -6,7 +6,7 @@ import {
     Redirect
 } from "react-router-dom";
 import Tags from "./views/Tags";
-import Money from "./views/Money";
+import Add from "./views/Add";
 import Statistics from "./views/Statistics";
 import NoMatch from "./views/Nomatch";
 
@@ -17,13 +17,13 @@ function App() {
                 <Route path="/tags">
                     <Tags/>
                 </Route>
-                <Route path="/money">
-                    <Money/>
+                <Route path="/add">
+                    <Add/>
                 </Route>
                 <Route path="/statistics">
                     <Statistics/>
                 </Route>
-                <Redirect exact from="/" to="money"/>
+                <Redirect exact from="/" to="add"/>
                 <Route path="*">
                     <NoMatch/>
                 </Route>

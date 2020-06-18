@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import React from "react";
 import Icon from "./Icon";
 const NavWrapper = styled.div`
@@ -9,7 +9,6 @@ const NavWrapper = styled.div`
          align-items: center;
          text-align: center;
           >li{
-            border: 1px solid red;
             width: 33.3333%;
             color:#1296db;
             padding: 0.4em;
@@ -17,33 +16,43 @@ const NavWrapper = styled.div`
             justify-content: center;
             align-items: center;
           >a{
-           border: 1px solid yellow;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;          
+            align-items: center;  
+            >.icon{
+              fill: #1296db;
+            }
+            &.selected{
+               color:#fb7813;
+               >.icon{
+                fill: #fb7813;
+               }
+            }      
           }}
       }
       box-shadow: 0 0 3px rgb(0,0,0,0.25);
+      background: white;
 `;
 function Nav(){
     return (
         <NavWrapper>
             <ul>
                 <li>
-                    <Link to="/tags">
+                    <NavLink to="/tags" activeClassName="selected">
                         <Icon name="tag"/>
-                        标签</Link>
+                        标签
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/money">
+                    <NavLink to="/add" activeClassName="selected">
                         <Icon name="add"/>
-                        记账</Link>
+                        记账</NavLink>
                 </li>
                 <li>
-                    <Link to="/statistics">
+                    <NavLink to="/statistics" activeClassName="selected">
                         <Icon name="statistics"/>
-                        统计</Link>
+                        统计</NavLink>
                 </li>
             </ul>
         </NavWrapper>
