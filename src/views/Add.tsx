@@ -50,7 +50,38 @@ const NotesSection = styled.section`
 `;
 
 const TabsSection = styled.section`
-
+      font-size: 24px;
+      >ul{
+         display: flex;      
+         >li{
+            width: 50%;
+            text-align: center;
+            background: #17706e;
+            color: #fff;
+            padding: 16px 0;
+            position: relative;
+            &.selected::before{
+                content: "";
+                display: block;
+                height: 3px;
+                background: #f7f7ee;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+            &.selected::after{
+                content: "";
+                display: block;
+                height: 3px;
+                background: #f7f7ee;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+         }
+      }
 `;
 
 const NumberSection = styled.section`
@@ -80,7 +111,7 @@ function Add() {
                 </NotesSection>
                 <TabsSection>
                     <ul>
-                        <li>支出</li>
+                        <li className="selected">支出</li>
                         <li>收入</li>
                     </ul>
                 </TabsSection>
