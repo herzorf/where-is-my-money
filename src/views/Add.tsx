@@ -10,12 +10,7 @@ function Add() {
         <div>
             <Layout>
                 <TagsSection />
-                <NotesSection>
-                    <label>
-                        <span>备注</span>
-                        <input type="text" placeholder="点击此处添加备注"/>
-                    </label>
-                </NotesSection>
+                <NotesSection />
                 <TabsSection>
                     <ul>
                         <li className="selected">支出</li>
