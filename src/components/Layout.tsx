@@ -9,20 +9,21 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-    flex-grow: 1;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
 `;
 
 
-function Layout(props:any) {
+function Layout(props: any) {
     return (
-        <div>
-            <Wrapper>
-                <Content>
-                    {props.children}
-                </Content>
-                <Nav/>
-            </Wrapper>
-        </div>
+        <Wrapper>
+            <Content>
+                {props.children}
+            </Content>
+            <Nav/>
+        </Wrapper>
+
     );
 }
 
