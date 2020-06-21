@@ -13,33 +13,20 @@ function Add() {
         tab: "-" as Tab,
         amount :0
     });
+    const onChange = (obj :Partial<typeof selected>) =>{
+        setSelected({
+            ...selected,
+            ...obj
+        })
+
+    };
     return (
         <div>
             <Layout>
-                <TagsSection selected={selected.tags} onChange={(tags)=>{
-                    setSelected({
-                        ...selected,
-                        tags:tags
-                    })
-                }} />
-                <NotesSection note={selected.note} onChange={(note)=>{
-                    setSelected({
-                        ...selected,
-                        note:note
-                    })
-                }}/>
-                <TabsSection tab={selected.tab} onChange={(tab)=>{
-                    setSelected({
-                        ...selected,
-                        tab:tab
-                    })
-                }}/>
-                <NumberSection amount={selected.amount} onChange={(amount)=>{
-                    setSelected({
-                        ...selected,
-                        amount:amount
-                    })
-                }} onOk={()=>{}}/>
+                <TagsSection selected={selected.tags} onChange={(tags)=> onChange({tags})}/>
+                <NotesSection note={selected.note} onChange={(note)=> onChange({note})}/>
+                <TabsSection tab={selected.tab} onChange={(tab)=> onChange({tab})}/>
+                <NumberSection amount={selected.amount} onChange={(amount)=> onChange({amount})} onOk={()=>{}}/>
             </Layout>
         </div>
     );
