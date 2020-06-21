@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import React, {useState} from "react";
 
-const TabsSection = styled.section`
+const Wrapper = styled.section`
       font-size: 24px;
       >ul{
          display: flex;      
@@ -11,6 +12,10 @@ const TabsSection = styled.section`
             color: #fff;
             padding: 16px 0;
             position: relative;
+            &.selected{
+              background-color: #fb7813;
+              color: #f7f7ee;
+            }
             &.selected::before{
                 content: "";
                 display: block;
@@ -21,18 +26,21 @@ const TabsSection = styled.section`
                 left: 0;
                 width: 100%;
             }
-            &.selected::after{
-                content: "";
-                display: block;
-                height: 3px;
-                background: #f7f7ee;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-            }
          }
       }
 `;
-
+const TabsSection: React.FC = () => {
+    const tabMap = {"-":"支出","+":"收入"};
+    const [tabList] = useState<("+"| "-")[]>(["-","+"]);
+    const [tab , setTab] = useState("-");
+    return (
+        <Wrapper>
+            <ul>
+                {tabList.map(c => {
+                    return <li className={tab === c ? "selected" :''} onClick={()=>{setTab(c)}} key={c}>{tabMap[c]}</li>
+                })}
+            </ul>
+        </Wrapper>
+    )
+};
 export {TabsSection}
