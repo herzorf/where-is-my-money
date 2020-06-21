@@ -29,15 +29,19 @@ const Wrapper = styled.section`
          }
       }
 `;
-const TabsSection: React.FC = () => {
+type Prop = {
+    tab: "-" | "+",
+    onChange: (tab: "-" | "+") => void
+}
+const TabsSection: React.FC<Prop> = (props) => {
     const tabMap = {"-":"支出","+":"收入"};
     const [tabList] = useState<("+"| "-")[]>(["-","+"]);
-    const [tab , setTab] = useState("-");
+    const tab = props.tab;
     return (
         <Wrapper>
             <ul>
                 {tabList.map(c => {
-                    return <li className={tab === c ? "selected" :''} onClick={()=>{setTab(c)}} key={c}>{tabMap[c]}</li>
+                    return <li className={tab === c ? "selected" :''} onClick={()=>{props.onChange(c)}} key={c}>{tabMap[c]}</li>
                 })}
             </ul>
         </Wrapper>

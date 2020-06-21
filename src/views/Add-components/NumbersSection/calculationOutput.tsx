@@ -25,7 +25,7 @@ const calculationOutput = (text:string , output = "0") =>{
             return "0";
         case ".":
             if(!output.includes(".")){
-                return output + text
+                return (output + text)
             }else {
                 return output
             }
