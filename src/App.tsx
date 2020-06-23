@@ -9,21 +9,25 @@ import Tags from "./views/Tags";
 import Add from "./views/Add";
 import Statistics from "./views/Statistics";
 import NoMatch from "./views/Nomatch";
+import {Tag} from "./views/tag";
 
 function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/tags">
+                <Route path="/tags" exact>
                     <Tags/>
                 </Route>
-                <Route path="/add">
+                <Route path="/tags/:tag" exact>
+                    <Tag/>
+                </Route>
+                <Route path="/add" exact>
                     <Add/>
                 </Route>
-                <Route path="/statistics">
+                <Route path="/statistics" exact>
                     <Statistics/>
                 </Route>
-                <Redirect exact from="/" to="add"/>
+                <Redirect exact from="/" to="add"  />
                 <Route path="*">
                     <NoMatch/>
                 </Route>

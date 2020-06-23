@@ -19,12 +19,10 @@ const Wrapper = styled.section`
         background: none;
         padding: 8px;
         border: none;
-        color: #f7f7ee;
-        font-size: 16px;
-      &:focus{
-        background-color: #f7f7ee;
         color: #17706e;
-      }        
+        font-size: 16px;
+        background:#f7f7ee;      
+        border-radius: 4px;  
     }
     }
 `;

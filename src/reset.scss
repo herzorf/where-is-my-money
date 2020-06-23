@@ -10,13 +10,17 @@ body{font-family: $font-hei;line-height: 1.2;
 .icon{
   height: 1.5em;
   width: 1.5em;
-;
 }
 button{
   font-family: inherit;
 }
 :focus{
   outline: none;
+}
+.oneLine{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (min-width:700px) {
   html{
