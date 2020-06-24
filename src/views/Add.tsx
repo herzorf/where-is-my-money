@@ -8,7 +8,7 @@ import {NumberSection} from "./Add-components/NumbersSection";
 type Tab = "-" | "+"
 function Add() {
     const [selected, setSelected]  =useState({
-        tags:[] as string[],
+        tagIds:[] as number[],
         note:'',
         tab: "-" as Tab,
         amount :0
@@ -18,12 +18,11 @@ function Add() {
             ...selected,
             ...obj
         })
-
     };
     return (
         <div>
             <Layout>
-                <TagsSection selected={selected.tags} onChange={(tags)=> onChange({tags})}/>
+                <TagsSection selected={selected.tagIds} onChange={(tagIds)=> onChange({tagIds})}/>
                 <NotesSection note={selected.note} onChange={(note)=> onChange({note})}/>
                 <TabsSection tab={selected.tab} onChange={(tab)=> onChange({tab})}/>
                 <NumberSection amount={selected.amount} onChange={(amount)=> onChange({amount})} onOk={()=>{}}/>

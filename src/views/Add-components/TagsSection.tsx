@@ -33,32 +33,32 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-    selected:string[];
-    onChange:(selected: string[]) => void
+    selected:number[];
+    onChange:(selected: number[]) => void
 }
 const TagsSection: React.FC<Props> = (props) => {
     const {tags ,setTags} = useTags();
-    const selected = props.selected;
+    const selectedIds = props.selected;
     const addTag = () => {
         const tagName = window.prompt("请输入新增标签的内容:");
         if (tagName !== null) {
-            setTags([...tags, tagName])
+            setTags([...tags,{id:Math.random(),name: tagName}])
         }
     };
-    const toggleTag = (tag: string) => {
-        if (selected.includes(tag)) {
-            props.onChange(selected.filter(t => t !== tag));
+    const toggleTag = (tagId: number) => {
+        if (selectedIds.includes(tagId)) {
+            props.onChange(selectedIds.filter(t => t !== tagId));
         } else {
-            props.onChange([...selected, tag])
+            props.onChange([...selectedIds, tagId])
         }
     };
     return (
         <Wrapper>
             <ul>
                 {tags.map(tag => {
-                    return <li key={tag} onClick={() => toggleTag(tag)}
-                               className={selected.includes(tag) ? "selected" : ""}>
-                        {tag}
+                    return <li key={tag.id} onClick={() => toggleTag(tag.id)}
+                               className={selectedIds.includes(tag.id) ? "selected" : ""}>
+                        {tag.name}
                     </li>
                 })}
             </ul>
