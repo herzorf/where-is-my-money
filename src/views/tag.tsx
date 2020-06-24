@@ -15,6 +15,18 @@ const DeleteTag = styled.button`
   color: #f7f7ee;
   border-radius: 4px;
 `
+const Topbar = styled.header`
+  display: flex;
+  justify-content: space-between;
+  line-height: 24px;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  font-size: 16px;
+      >.icon{
+      fill:#1296db;
+      }
+`
 
 type Params = {
     id: string
@@ -25,10 +37,11 @@ const Tag = () => {
     const tag = findTag(parseInt(id));
     return (
         <Layout>
-            <header>
+            <Topbar>
                 <Icon name="left" />
                 <span>编辑标签</span>
-            </header>
+                <Icon name="占位" />
+            </Topbar>
             <div>
                 <label>
                     <span>标签名</span>

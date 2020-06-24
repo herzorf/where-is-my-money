@@ -21,6 +21,7 @@ function Add() {
     };
     return (
         <div>
+            {selected.note}
             <Layout>
                 <TagsSection selected={selected.tagIds} onChange={(tagIds)=> onChange({tagIds})}/>
                 <NotesSection note={selected.note} onChange={(note)=> onChange({note})}/>
