@@ -4,6 +4,9 @@ import {useTags} from "../lib/useTags";
 import Layout from "../components/Layout";
 import Icon from "../components/Icon";
 import styled from "styled-components";
+import {Input} from "../components/Input";
+import {Center} from "../components/Center";
+import {Space} from "../components/Space";
 
 const DeleteTag = styled.button`
    font-size: 16px;
@@ -14,19 +17,29 @@ const DeleteTag = styled.button`
   background-color: #fb7813;
   color: #f7f7ee;
   border-radius: 4px;
-`
+`;
 const Topbar = styled.header`
   display: flex;
   justify-content: space-between;
   line-height: 24px;
   align-items: center;
-  padding: 10px;
+  padding: 16px;
   background-color: white;
   font-size: 16px;
       >.icon{
       fill:#1296db;
       }
-`
+`;
+const InputWrapper = styled.div`
+    >label{
+        background-color: #1296db;
+        color: #f7f7ee;
+        padding: 0.5em;
+        >input{
+         color: #1296db;
+        }
+    }
+`;
 
 type Params = {
     id: string
@@ -38,18 +51,21 @@ const Tag = () => {
     return (
         <Layout>
             <Topbar>
-                <Icon name="left" />
+                <Icon name="left"/>
                 <span>编辑标签</span>
-                <Icon name="占位" />
+                <Icon name="占位"/>
             </Topbar>
-            <div>
-                <label>
-                    <span>标签名</span>
-                    <input type="text" placeholder="标签名" />
-                </label>
-                <DeleteTag>删除标签</DeleteTag>
-            </div>
+            <Space/>
+            <InputWrapper>
+                <Input label="标签名" placeholder="标签名"/>
+                <Space/>
+                <Space/>
+
+                <Center>
+                    <DeleteTag>删除标签</DeleteTag>
+                </Center>
+            </InputWrapper>
         </Layout>
     )
-}
+};
 export {Tag}
