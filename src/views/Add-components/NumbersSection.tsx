@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {Wrapper} from "./NumbersSection/Wrapper";
 import {calculationOutput} from "./NumbersSection/calculationOutput";
 type Props = {

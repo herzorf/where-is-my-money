@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 import React from "react";
-import {useTags} from "useTags";
+import {useTags} from "lib/useTags";
 import styled from "styled-components";
 import Icon from "../components/Icon";
 import {Link} from "react-router-dom";
@@ -46,14 +46,14 @@ const Space = styled.div`
      height: 16px;
 `;
 function Tags() {
-    const {tags ,setTags} = useTags();
+    const {tags } = useTags();
     return (
         <div>
             <Layout>
                 <TagsList>
                     {tags.map((tag)=>{
                         return (<li key={tag.id} >
-                                    <Link to={"/tags/" + tag.id}>
+                                    <Link to={"/tags/" + tag.id} >
                                            <span className="oneLine">{tag.name}</span>
                                            <Icon name="right"/>
                                     </Link>
