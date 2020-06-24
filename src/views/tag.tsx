@@ -57,10 +57,9 @@ const Tag = () => {
             </Topbar>
             <Space/>
             <InputWrapper>
-                <Input label="标签名" placeholder="标签名"/>
+                <Input value={tag.name} label="标签名" placeholder="标签名"/>
                 <Space/>
                 <Space/>
-
                 <Center>
                     <DeleteTag>删除标签</DeleteTag>
                 </Center>
