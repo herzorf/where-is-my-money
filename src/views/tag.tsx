@@ -1,5 +1,5 @@
 import React from "react";
-import {useParams} from "react-router";
+import {useParams,useHistory} from "react-router";
 import {useTags} from "../lib/useTags";
 import Layout from "../components/Layout";
 import Icon from "../components/Icon";
@@ -45,28 +45,34 @@ type Params = {
     id: string
 }
 const Tag = () => {
-    const {findTag,updateTag} = useTags();
+    const {findTag,updateTag,deleteTag} = useTags();
     let {id:idString} = useParams<Params>();
     const tag = findTag(parseInt(idString));
+    const history = useHistory()
+    const goBack = () =>{
+        history.goBack()
+    }
     return (
         <Layout>
             <Topbar>
-                <Icon name="left"/>
+                <Icon name="left" onClick={goBack}/>
                 <span>编辑标签</span>
                 <Icon name="占位"/>
             </Topbar>
             <Space/>
-            <InputWrapper>
-                <Input value={tag.name} label="标签名" placeholder="标签名"
-                       onChange={(e)=>{
-                            updateTag(tag.id,{ name :e.target.value})
-                }}/>
-                <Space/>
-                <Space/>
-                <Center>
-                    <DeleteTag>删除标签</DeleteTag>
-                </Center>
-            </InputWrapper>
+            {tag ?
+                <InputWrapper>
+                    <Input value={tag.name} label="标签名" placeholder="标签名"
+                           onChange={(e)=>{
+                               updateTag(tag.id,{ name :e.target.value})
+                           }}/>
+                    <Space/>
+                    <Space/>
+                    <Center>
+                        <DeleteTag onClick={()=>{deleteTag(tag.id)}}>删除标签</DeleteTag>
+                    </Center>
+                </InputWrapper>
+                : <div>标签不存在</div>}
         </Layout>
     )
 };
