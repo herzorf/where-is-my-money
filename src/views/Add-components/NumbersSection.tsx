@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Wrapper} from "./NumbersSection/Wrapper";
 import {calculationOutput} from "./NumbersSection/calculationOutput";
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
     onOk? :() => void
 }
 const NumberSection: React.FC<Props> = (props ) => {
-    const output = props.amount.toString();
+    const [output,_setoutput] = useState(props.amount.toString())
     const onClickWrapper = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent;
         if (text === null) {
@@ -19,8 +19,10 @@ const NumberSection: React.FC<Props> = (props ) => {
         }
         const setOutput = (output: string) => {
             if (output.length >= 16) {
+                _setoutput(output);
                 props.onChange(parseFloat(output.slice(0, 16)));
             } else {
+                _setoutput(output);
                 props.onChange(parseFloat(output));
             }
         }
