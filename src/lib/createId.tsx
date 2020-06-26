@@ -1,5 +1,7 @@
-let id = 1;
+let id = parseInt(window.localStorage.getItem("maxId") || "0");
 const createId = () =>{
-    return id++;
+     id++;
+    window.localStorage.setItem("maxId",id.toString())
+    return id;
 }
 export  {createId}
