@@ -17,7 +17,7 @@ type Tab = "-" | "+"
 
 function Add() {
     const [selected, setSelected] = useState(defaultFormData);
-    const {records, addRecord} = useRecords();
+    const { addRecord} = useRecords();
     const onChange = (obj: Partial<typeof selected>) => {
         setSelected({
             ...selected,

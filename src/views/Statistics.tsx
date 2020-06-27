@@ -33,7 +33,7 @@ function Statistics() {
     const [tab,setTab] = useState<"-" | "+">("-");
     const selectedRecord = records.filter((record)=>record.tab === tab);
     const hash :{[K:string]: RecordItem[]} = {};
-    selectedRecord.map(record =>{
+    selectedRecord.forEach(record =>{
         const key = day(record.createdAt).format("YYYY年MM月DD日");
         if(!(key in hash)){
             hash[key] = [];
@@ -46,13 +46,11 @@ function Statistics() {
        if(a[0] > b[0]) return -1;
        return 0;
     });
-    console.log(hash);
     return (
             <Layout>
                 <TabsSection tab={tab} onChange={tab => setTab(tab)}/>
-
                 {array.map(([date,records])=>
-                    <div>
+                    <div key={date}>
                         <Header>{date}</Header>
                         <div>
                             {records.map((record) =>{
