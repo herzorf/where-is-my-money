@@ -7,14 +7,15 @@ type Props = {
     onOk? :() => void
 }
 const NumberSection: React.FC<Props> = (props ) => {
-    const [output,_setoutput] = useState(props.amount.toString())
+    const [output,_setoutput] = useState(props.amount.toString());
     const onClickWrapper = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent;
         if (text === null) {
             return
         }
         if(text === "确定"){
-            props.onOk && props.onOk()
+            props.onOk && props.onOk();
+            _setoutput("0");
             return;
         }
         const setOutput = (output: string) => {
@@ -25,11 +26,11 @@ const NumberSection: React.FC<Props> = (props ) => {
                 _setoutput(output);
                 props.onChange(parseFloat(output));
             }
-        }
+        };
         if('0123456789'.split("").concat(["删除","清空","."]).indexOf(text) >= 0){
             setOutput(calculationOutput(text,output))
         }
-    }
+    };
 
     return (
         <Wrapper>
@@ -52,6 +53,6 @@ const NumberSection: React.FC<Props> = (props ) => {
             </div>
         </Wrapper>
     )
-}
+};
 
 export {NumberSection}
